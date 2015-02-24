@@ -1,6 +1,23 @@
 <div class="container">
-  <h1>The Home View!</h1>
+  <h1>Raffler Example From RailsCasts</h1>
+
+  <form ng-submit="addEntry()">
+    <input type="text" ng-model="newEntry.name">
+    <input type="submit" value="Add">
+  </form>
+
   <ul>
-    <li ng-repeat="thing in things">{{thing}}</li>
+    <li ng-repeat="entry in entries">
+      {{entry.name}}
+
+      <!-- Used bootstrap 'mark' class instead of Ryan's highlight -->
+      <span ng-show="entry.winner" ng-class="{mark: entry == lastWinner}" class="winner">WINNER</span>
+    </li>
   </ul>
+
+  <button ng-click="drawWinner()">Draw Winner</button>
+
+  <!-- Added this clear function .. it works! -->
+  <button ng-click="clearEntries()">Clear Entries</button>
+
 </div>
